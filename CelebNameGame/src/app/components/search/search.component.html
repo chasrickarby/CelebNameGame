@@ -1,6 +1,6 @@
 <section class="filter-wrap">
   <div class="keyword-wrap">
-    <input type="text" id="keyword" placeholder="Search for movies..." autofocus/>
+    <input input [formControl]="queryField" type="text" id="keyword" placeholder="Search for movies..." autofocus/>
     <div>
       <ul class="filter-select">
         <li class="filter-select-list">

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms'
+import { SearchService } from '../search/search.service'
 
 @Component({
   selector: 'app-search',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _searchService: SearchService) {}
 
+  results: any[] = [];
+  queryField: FormControl = new FormControl();
   ngOnInit() {
+    console.log('here');
+    console.log(this.queryField.value);
+    this.queryField.valueChanges.subscribe( result => console.log(result));
   }
 
 }
