@@ -14,16 +14,9 @@ body {
     font: 100% 'Arimo', sans-serif;
 }
 
-.filter-wrap,
-.keyword-wrap {
-    display: flex;
-    justify-content: center;
-}
-
 .filter-wrap {
     min-height: 100%;
-    flex-flow: column wrap;;
-    position: relative
+    flex-flow: column wrap;
 }
 
 .keyword-wrap{
@@ -34,9 +27,10 @@ body {
 #keyword {
     border: 1px solid #ccc;
     font: 1.5em 'Arimo', sans-serif;
-    width: 50%;
+    width: 100%;
     outline: none;
     transition: border 0.5s ease-in-out;
+    position: relative;
 }
 
 #keyword:focus {
@@ -44,7 +38,7 @@ body {
 }
 
 #keyword-button {
-    position: absolute;
+    position: relative;
     right: 26%;
     top: 50%;
     transform: translateY(-50%);
@@ -58,26 +52,25 @@ body {
 
 .filter-select{
     list-style: none;
-    width: 50%;
+    width: 100%;
     font-size: 1.1em;
     color: rgb(105, 105, 105);
     border: 1px solid #ccc;
-    border-top: none;
 
     /* Let's not let things move inappropriately */
-    position: absolute;
-    left: 25%;
+    /* position: relative; */
+    /* left: 25%; */
     /*Since we know the wrapper will always be 100% height, we can use half of 100% + half the height of the input*/
-    top: calc(13px);
+    /* top: calc(13px); */
     /*for a better calculation use JS.  I'm calculating half of the body height - half the height of the input - li padding*/
-    max-height: calc(50% - 15px);
+    /* max-height: calc(50% - 15px); */
     /* overflow-y: auto; */
     background: #fff
 }
 
 .filter-select-list img{
     margin-right: 30px;
-    margin-left: -50px;
+    margin-left: -40px;
 }
 
 .tags{
@@ -95,7 +88,6 @@ body {
 
 .filter-select-list{
     cursor: pointer;
-    /* padding: 5px 10px; */
     width: 100%;
 }
 
