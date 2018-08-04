@@ -4,7 +4,7 @@
   </div>
   <div class="filter-select-wrap">
     <ul class="filter-select">
-      <li *ngFor="let result of results | slice:0:5;" class="filter-select-list">
+      <li *ngFor="let result of results | slice:0:5;" (click)="clickEvent(result.id)" class="filter-select-list">
         <div *ngIf="result.poster_path != null">
           <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="" width="50" height="75">
           <p class="movie-name">{{result.title}}</p>

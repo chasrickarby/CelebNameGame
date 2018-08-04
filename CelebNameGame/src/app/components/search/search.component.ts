@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms'
-import { SearchService } from '../search/search.service'
-import {EmptyObservable} from 'rxjs/observable/EmptyObservable';
+import { SearchService } from './search.service'
+import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
+import { MovieIdService } from '../movie-id.service';
 
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
@@ -16,7 +17,7 @@ import 'rxjs/add/operator/switchMap';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private _searchService: SearchService) {}
+  constructor(private _searchService: SearchService, private movieId: MovieIdService) {}
 
   results: any[] = [];
   response: any;
@@ -38,4 +39,10 @@ export class SearchComponent implements OnInit {
         console.log(this.results);
       });
   }
+
+  clickEvent(id: string){
+    console.log("ID OF CLICK: " + id);
+    this.movieId.changeId(id);
+  }
+
 }
