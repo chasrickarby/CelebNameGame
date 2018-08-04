@@ -33,11 +33,10 @@ body {
 
 #keyword {
     border: 1px solid #ccc;
-    pading: 10px;
     font: 1.5em 'Arimo', sans-serif;
     width: 50%;
     outline: none;
-    transition: border 0.5s ease-in-out
+    transition: border 0.5s ease-in-out;
 }
 
 #keyword:focus {
@@ -58,8 +57,8 @@ body {
 }
 
 .filter-select{
-    width: 50%;
     list-style: none;
+    width: 50%;
     font-size: 1.1em;
     color: rgb(105, 105, 105);
     border: 1px solid #ccc;
@@ -68,14 +67,17 @@ body {
     /* Let's not let things move inappropriately */
     position: absolute;
     left: 25%;
-    top: calc(50% + 25px);
-    max-height: calc(50% + 25px);
-    overflow-y: auto;
-    background: #fff;
+    /*Since we know the wrapper will always be 100% height, we can use half of 100% + half the height of the input*/
+    top: calc(13px);
+    /*for a better calculation use JS.  I'm calculating half of the body height - half the height of the input - li padding*/
+    max-height: calc(50% - 15px);
+    /* overflow-y: auto; */
+    background: #fff
 }
 
 .filter-select-list img{
     margin-right: 30px;
+    margin-left: -50px;
 }
 
 .tags{
@@ -93,10 +95,11 @@ body {
 
 .filter-select-list{
     cursor: pointer;
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
+    width: 100%;
 }
 
-.artist-name{
+.movie-name{
     display: inline-block;
     position: absolute;
 }
@@ -127,7 +130,7 @@ body {
         left: 10%;
         top: calc(50% + 23px);
     }
-    
+
     #keyword-button{
         right: 11%
     }
