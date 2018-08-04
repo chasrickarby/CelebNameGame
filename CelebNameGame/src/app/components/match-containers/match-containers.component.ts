@@ -23,14 +23,15 @@ export class MatchContainersComponent implements OnInit {
   actorNames = [];
   actorPicNames = [];
   response: any;
+  actors = [];
 
   ngOnInit() {
     this.movieId.currentMessage.subscribe(id => {
       this.id = id
       if(id){
         let response = this.castService.search(id).subscribe(result => {
-          this.response = result.json()
-          console.log(this.response.cast);
+          this.response = result.json().cast;
+          console.log(this.response);
         });
       }
       

@@ -1,18 +1,14 @@
 <h1>Sortable items</h1>
 <div ng-controller="sortableController" class="section row">
   <div class="col-sm-offset-2 col-sm-4">
-    <ul class="actor-name" dnd-sortable-container [sortableData]="actorNames">
-      <span *ngIf="id != null">
-        <span *ngIf="response != null">
-          <li *ngFor="let actor of response.name; let i = index" class="actorName" dnd-sortable [sortableIndex]="i">
-            <div>
-              <p>Name(s): {{actor}}</p>
-              <app-actor-name></app-actor-name>
-            </div>
-          </li>
-        </span>
-      </span>   
-    </ul>
+    <span *ngIf="id != null">
+      <ul class="actor-name" dnd-sortable-container [sortableData]="response">
+        <li *ngFor="let actor of response | slice:0:5; let i = index" class="actorName" dnd-sortable [sortableIndex]="i">          
+          <p>{{actor.name}}</p>
+          <app-actor-name></app-actor-name>
+        </li>
+      </ul>
+    </span>   
   </div>
   <div class="col-sm-4">
     <ul class="actor-pic">
