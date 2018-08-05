@@ -2,20 +2,20 @@
 <div ng-controller="sortableController" class="section row">
   <div class="col-sm-offset-2 col-sm-4">
     <span *ngIf="id != null">
-      <ul class="actor-name" dnd-sortable-container [sortableData]="response">
-        <li *ngFor="let actor of response | slice:0:5; let i = index" class="listItem" dnd-sortable [sortableIndex]="i">          
-          <p>{{actor.name}}</p>
+      <ul class="actor-name" dnd-sortable-container [sortableData]="actorNames">
+        <li *ngFor="let actor of actorNames | slice:0:5; let i = index" class="listItem" dnd-sortable [sortableIndex]="i">          
+          <p>{{actor}}</p>
           <app-actor-name></app-actor-name>
         </li>
       </ul>
     </span>   
-  </div>
+  </div> 
   <div class="col-sm-4">
     <span *ngIf="id != null">
       <ul class="actor-pic">
-        <li *ngFor="let actor of response | slice:0:5" class="listItem">
-          <div *ngIf="actor.id">
-            <app-actor-image [actorId] = "actor.id"></app-actor-image>
+        <li *ngFor="let actor of actorIds | slice:0:5" class="listItem">
+          <div *ngIf="actor">
+            <app-actor-image [actorId] = "actor"></app-actor-image>
           </div>
         </li>  
       </ul>

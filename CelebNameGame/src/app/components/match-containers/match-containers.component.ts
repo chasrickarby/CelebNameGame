@@ -19,9 +19,8 @@ export class MatchContainersComponent implements OnInit {
 
   id: string;
 
-  actorPics = [];
   actorNames = [];
-  actorPicNames = [];
+  actorIds = [];
   response: any;
   actors = [];
 
@@ -31,6 +30,12 @@ export class MatchContainersComponent implements OnInit {
       if(id){
         let response = this.castService.search(id).subscribe(result => {
           this.response = result.json().cast;
+          for(let result of this.response){
+            console.log("Id: " + result.id)
+            console.log("Name: " + result.name)
+            this.actorIds.push(result.id);
+            this.actorNames.push(result.name)
+          }
           console.log(this.response);
         });
       }
