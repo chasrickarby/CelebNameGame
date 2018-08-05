@@ -1,5 +1,11 @@
-.center{
+.search{
     position: relative;
     margin: auto;
     width: 50%;
+}
+
+.match-containers {
+    position: relative;
+    margin: auto;
+    width: 75%;
 }
