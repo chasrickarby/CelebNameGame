@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfilePicService } from './profile-pic.service';
 
 @Component({
   selector: 'app-actor-image',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./actor-image.component.css']
 })
 export class ActorImageComponent implements OnInit {
+  @Input() actorId: string;
 
-  constructor() { }
+  profilePic: string;
+
+  constructor(private picService: ProfilePicService) {}
 
   ngOnInit() {
+    console.log("Here?" + this.actorId);
+    this.picService.search(this.actorId).subscribe(response =>{
+      let specificPath = response.json().profile_path;
+      this.profilePic = "https://image.tmdb.org/t/p/w500/" + specificPath;
+    });
   }
 
 }

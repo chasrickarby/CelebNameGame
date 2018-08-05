@@ -3,7 +3,7 @@
   <div class="col-sm-offset-2 col-sm-4">
     <span *ngIf="id != null">
       <ul class="actor-name" dnd-sortable-container [sortableData]="response">
-        <li *ngFor="let actor of response | slice:0:5; let i = index" class="actorName" dnd-sortable [sortableIndex]="i">          
+        <li *ngFor="let actor of response | slice:0:5; let i = index" class="listItem" dnd-sortable [sortableIndex]="i">          
           <p>{{actor.name}}</p>
           <app-actor-name></app-actor-name>
         </li>
@@ -11,10 +11,14 @@
     </span>   
   </div>
   <div class="col-sm-4">
-    <ul class="actor-pic">
-      <li *ngFor="let pic of actorPics" class="actor-pic">
-        <app-actor-image></app-actor-image> 
-      </li>  
-    </ul>
+    <span *ngIf="id != null">
+      <ul class="actor-pic">
+        <li *ngFor="let actor of response | slice:0:5" class="listItem">
+          <div *ngIf="actor.id">
+            <app-actor-image [actorId] = "actor.id"></app-actor-image>
+          </div>
+        </li>  
+      </ul>
+    </span>
   </div>
 </div>
