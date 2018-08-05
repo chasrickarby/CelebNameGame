@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ActorImageComponent } from '../actor-image/actor-image.component';
 import { ActorNameComponent } from '../actor-name/actor-name.component';
 import { CastSearchService } from './cast-search.service';
@@ -17,7 +17,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./match-containers.component.css']
 })
 export class MatchContainersComponent implements OnInit {
-
+  @Output() newGame = new EventEmitter<boolean>();
   constructor(private movieId: MovieIdService, private castService: CastSearchService, private dialog: MatDialog) { }
 
   id: string;
@@ -107,7 +107,21 @@ export class MatchContainersComponent implements OnInit {
       data: {score: points, minorMessage: minorMessage, totalPossible: this.correctActorNameList.length},
       disableClose: true
     });
-    console.log("Your score: " + points);
+
+    this.dialogRef.afterClosed().subscribe(() => {
+      console.log("Dialog closed");
+      let dialog = this.dialogRef.componentInstance;
+      console.log(dialog);
+      if(dialog.newGame){
+        console.log("NEW GAME!")
+        this.newGame.emit(true);
+      }else if(dialog.retry){
+        // Save off the correct list of actors before shuffling
+        console.log("RETRY!")
+        this.newGame.emit(false);
+        this.actorNames = this.shuffle(this.actorNames);
+      }
+    });
   }
 
 }

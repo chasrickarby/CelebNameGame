@@ -1,7 +1,5 @@
 <h1>Gotta Match 'em All</h1>
-<div class="submitButton">
-  <button mat-raised-button (click)="score()">Submit</button>
-</div>
+<p>When you think you're done, click Submit at the bottom of the page to check your answers.</p>
 <div ng-controller="sortableController" class="section row">
   <div class="col-sm">
     <span *ngIf="id != null">
@@ -24,4 +22,7 @@
       </ul>
     </span>
   </div>
+</div>
+<div class="submitButton">
+  <button mat-raised-button (click)="score()">Submit</button>
 </div>

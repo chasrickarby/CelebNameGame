@@ -1,7 +1,15 @@
-<section class="search">
-    <app-search></app-search>
+<section class="search" *ngIf="configForNewGame">
+    <h1>Celebrity Name Game</h1>
+    <p>
+        How well do you know your favorite movies? Or rather the actors in your favorite movies? Here's a game to find out. The rules are super easy. Search for a favorite movie down there 👇 and select it from the list. Then, just drag and drop the actors names into the correct order matching their pictures on the right, and you're done!
+    </p>
+    <app-search
+        (newGame)="newGame($event)">
+    </app-search>
 </section>
 <section class="match-containers">
-    <app-match-containers></app-match-containers>
+    <app-match-containers *ngIf="!configForNewGame"
+        (newGame)="newGame($event)">
+    </app-match-containers>
 </section>
 

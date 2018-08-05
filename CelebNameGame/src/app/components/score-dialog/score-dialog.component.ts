@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatButtonModule} from '@angular/material';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatButtonModule} from '@angular/material';
 
 @Component({
   selector: 'app-score-dialog',
@@ -8,7 +8,7 @@ import {MatDialog, MAT_DIALOG_DATA, MatButtonModule} from '@angular/material';
 })
 export class ScoreDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef:MatDialogRef<ScoreDialogComponent>) {
     this.score = data.score;
     this.minorMessage = data.minorMessage;
     this.totalPossible = data.totalPossible;
@@ -21,7 +21,22 @@ export class ScoreDialogComponent implements OnInit {
   minorMessage: string;
   totalPossible: string;
 
+  retry: boolean;
+  newGame: boolean;
+
   ngOnInit() {
+  }
+
+  closeAndRetry(){
+    this.newGame = false;
+    this.retry = true;
+    this.dialogRef.close();
+  }
+
+  closeAndNewGame(){
+    this.newGame = true;
+    this.retry = false;
+    this.dialogRef.close();
   }
 
 }

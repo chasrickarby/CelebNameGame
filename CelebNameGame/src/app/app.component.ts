@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  configForNewGame: boolean = true;
+
+  newGame(newGame: boolean){
+    console.log("CONFIG FOR NEW GAME: " + newGame);
+    this.configForNewGame = newGame;
+  }
 }

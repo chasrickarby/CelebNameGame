@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms'
 import { SearchService } from './search.service'
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
@@ -17,8 +17,10 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
+  @Output() newGame = new EventEmitter<boolean>();
   constructor(private _searchService: SearchService, private movieId: MovieIdService) {}
+
+
 
   results: any[] = [];
   response: any;
@@ -46,6 +48,7 @@ export class SearchComponent implements OnInit {
     // Clear the query Field so that it doesn't look like a search is 
     // still in progress
     this.queryField.setValue("");
+    this.newGame.emit(false);
   }
 
 }

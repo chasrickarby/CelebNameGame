@@ -2,10 +2,10 @@
 <p>{{minorMessage}}</p>
 <div class="section row">
   <div class="col-sm buttons">
-    <button mat-raised-button>Retry</button>
+    <button mat-raised-button (click)="closeAndRetry()">Retry</button>
   </div>
   <div class="col-sm buttons">
-    <button mat-raised-button>New Game</button>
+    <button mat-raised-button (click)="closeAndNewGame()">New Game</button>
   </div>
 </div>
 
