@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms'
@@ -15,6 +16,8 @@ import { MatchContainersComponent } from './components/match-containers/match-co
 
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
+import { ScoreDialogComponent } from './components/score-dialog/score-dialog.component';
 
 
 @NgModule({
@@ -23,18 +26,22 @@ import { MatInputModule } from '@angular/material';
     SearchComponent,
     ActorImageComponent,
     ActorNameComponent,
-    MatchContainersComponent
+    MatchContainersComponent,
+    ScoreDialogComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpModule,
     NgbModule.forRoot(),
     DndModule.forRoot(),
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
     ],
   providers: [SearchService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ScoreDialogComponent]
 })
 export class AppModule { }

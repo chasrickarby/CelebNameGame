@@ -19,7 +19,6 @@ export class ProfilePicService {
 
   private getQuery(personId: string){
     this.personId = personId;
-    console.log("PersonId:" + personId);
     return "https://api.themoviedb.org/3/person/" + personId + "?api_key=" + this.apiKey;
   }
 }

@@ -37,13 +37,15 @@ export class SearchComponent implements OnInit {
         })
       .subscribe(response => {
         this.results = response.json().results
-        console.log(this.results);
       });
   }
 
   clickEvent(id: string){
-    console.log("ID OF CLICK: " + id);
     this.movieId.changeId(id);
+
+    // Clear the query Field so that it doesn't look like a search is 
+    // still in progress
+    this.queryField.setValue("");
   }
 
 }

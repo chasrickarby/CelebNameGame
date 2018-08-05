@@ -4,11 +4,31 @@ li {
     width: stretch;
 }
 
-ul {
-    width: stretch;
+h1 {
+    text-align: center;
 }
 
-li p {
+ul {
+    width: stretch;
+    list-style-type: none;
+}
+
+ul li p {
     height: stretch;
     line-height: 175px;
+    width: stretch;
+    text-align: center;
+}
+
+.submitButton{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.actor-pic{
+    text-align: center;
+}
+
+.actor-image {
+    display: block;
 }

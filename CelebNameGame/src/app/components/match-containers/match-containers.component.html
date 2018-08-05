@@ -1,6 +1,6 @@
-<h1>Sortable items</h1>
+<h1>Gotta Match 'em All</h1>
 <div class="submitButton">
-  <button mat-raised-button>Submit</button>
+  <button mat-raised-button (click)="score()">Submit</button>
 </div>
 <div ng-controller="sortableController" class="section row">
   <div class="col-sm">
@@ -18,7 +18,7 @@
       <ul class="actor-pic">
         <li *ngFor="let actor of actorIds | slice:0:5" class="listItem">
           <div *ngIf="actor">
-            <app-actor-image [actorId] = "actor"></app-actor-image>
+            <app-actor-image class="actor-image" [actorId] = "actor"></app-actor-image>
           </div>
         </li>  
       </ul>
