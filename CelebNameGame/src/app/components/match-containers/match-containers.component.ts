@@ -104,7 +104,8 @@ export class MatchContainersComponent implements OnInit {
     }
 
     this.dialogRef = this.dialog.open(ScoreDialogComponent, {
-      data: {score: points, minorMessage: minorMessage}
+      data: {score: points, minorMessage: minorMessage, totalPossible: this.correctActorNameList.length},
+      disableClose: true
     });
     console.log("Your score: " + points);
   }

@@ -1,7 +1,11 @@
-h1{
+h1 {
     text-align: center;
 }
 
-p{
+p {
     text-align: center;
 }
+
+.buttons {
+    text-align: center;
+} 
