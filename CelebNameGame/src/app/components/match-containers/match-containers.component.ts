@@ -90,7 +90,22 @@ export class MatchContainersComponent implements OnInit {
       }
     }
 
-    this.dialogRef = this.dialog.open(ScoreDialogComponent);
+    let minorMessage: string;
+    let pointPercentage = points/this.correctActorNameList.length;
+
+    if(pointPercentage == 1){
+      minorMessage = "Movie Buff Status!"
+    }else if(pointPercentage >= 0.5){
+      minorMessage = "Good, not great."
+    }else if(pointPercentage == 0){
+      minorMessage = "Are you sure you've seen this one?"
+    }else{
+      minorMessage = "Maybe give this one another watch and try again."
+    }
+
+    this.dialogRef = this.dialog.open(ScoreDialogComponent, {
+      data: {score: points, minorMessage: minorMessage}
+    });
     console.log("Your score: " + points);
   }
 
