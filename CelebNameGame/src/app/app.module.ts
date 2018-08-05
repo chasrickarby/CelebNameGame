@@ -18,6 +18,8 @@ import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { ScoreDialogComponent } from './components/score-dialog/score-dialog.component';
+import { ScoreboardService } from './scoreboard.service';
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component'
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ScoreDialogComponent } from './components/score-dialog/score-dialog.com
     ActorImageComponent,
     ActorNameComponent,
     MatchContainersComponent,
-    ScoreDialogComponent
+    ScoreDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -40,8 +43,14 @@ import { ScoreDialogComponent } from './components/score-dialog/score-dialog.com
     MatInputModule,
     MatDialogModule
     ],
-  providers: [SearchService],
+  providers: [
+    SearchService,
+    ScoreboardService
+  ],
   bootstrap: [AppComponent],
-  entryComponents: [ScoreDialogComponent]
+  entryComponents: [
+    ScoreDialogComponent,
+    LoginDialogComponent
+  ]
 })
 export class AppModule { }

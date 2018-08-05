@@ -109,15 +109,11 @@ export class MatchContainersComponent implements OnInit {
     });
 
     this.dialogRef.afterClosed().subscribe(() => {
-      console.log("Dialog closed");
       let dialog = this.dialogRef.componentInstance;
-      console.log(dialog);
       if(dialog.newGame){
-        console.log("NEW GAME!")
         this.newGame.emit(true);
       }else if(dialog.retry){
         // Save off the correct list of actors before shuffling
-        console.log("RETRY!")
         this.newGame.emit(false);
         this.actorNames = this.shuffle(this.actorNames);
       }
