@@ -5,6 +5,8 @@ import { CastSearchService } from './cast-search.service';
 import { MovieIdService } from '../movie-id.service';
 
 import { Observable } from 'rxjs/Rx'
+import { MatButtonModule } from '@angular/material';
+
 import 'rxjs/add/operator/map';
 
 

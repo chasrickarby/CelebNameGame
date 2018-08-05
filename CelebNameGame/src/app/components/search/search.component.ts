@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms'
 import { SearchService } from './search.service'
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
 import { MovieIdService } from '../movie-id.service';
+import { MatInputModule } from '@angular/material';
 
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';

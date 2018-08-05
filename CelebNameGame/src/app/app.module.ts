@@ -13,6 +13,9 @@ import { ActorImageComponent } from './components/actor-image/actor-image.compon
 import { ActorNameComponent } from './components/actor-name/actor-name.component';
 import { MatchContainersComponent } from './components/match-containers/match-containers.component'
 
+import { MatButtonModule } from '@angular/material';
+import { MatInputModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { MatchContainersComponent } from './components/match-containers/match-co
     ReactiveFormsModule,
     HttpModule,
     NgbModule.forRoot(),
-    DndModule.forRoot()
+    DndModule.forRoot(),
+    MatButtonModule,
+    MatInputModule
     ],
   providers: [SearchService],
   bootstrap: [AppComponent]

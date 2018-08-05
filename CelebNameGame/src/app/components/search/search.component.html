@@ -1,19 +1,21 @@
 <section class="filter-wrap">
   <div class="keyword-wrap">
-    <input input [formControl]="queryField" type="text" id="keyword" placeholder="Search for a movie..." autofocus/>
+    <input matInput [formControl]="queryField" type="text" id="keyword" placeholder="Search for a movie..." autofocus/>
   </div>
   <div class="filter-select-wrap">
-    <ul class="filter-select">
-      <li *ngFor="let result of results | slice:0:5;" (click)="clickEvent(result.id)" class="filter-select-list">
-        <div *ngIf="result.poster_path != null">
-          <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="" width="50" height="75">
-          <p class="movie-name">{{result.title}}</p>
-        </div>
-        <div *ngIf="result.poster_path == null">
-          <img src="http://www.citypages.com/img/movie-placeholder.gif" alt="" width="50" height="75">
-          <p class="movie-name">{{result.title}}</p>
-        </div>
-      </li>
-    </ul>
+    <span *ngIf="results.length > 0">
+      <ul class="filter-select">
+        <li *ngFor="let result of results | slice:0:5;" (click)="clickEvent(result.id)" class="filter-select-list">
+          <div *ngIf="result.poster_path != null">
+            <img src="https://image.tmdb.org/t/p/w500/{{result.poster_path}}" alt="" width="50" height="75">
+            <p class="movie-name">{{result.title}}</p>
+          </div>
+          <div *ngIf="result.poster_path == null">
+            <img src="http://www.citypages.com/img/movie-placeholder.gif" alt="" width="50" height="75">
+            <p class="movie-name">{{result.title}}</p>
+          </div>
+        </li>
+      </ul>
+    </span>
   </div>
 </section>
