@@ -17,9 +17,11 @@ import { MatchContainersComponent } from './components/match-containers/match-co
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
+import { MatTableModule } from '@angular/material';
 import { ScoreDialogComponent } from './components/score-dialog/score-dialog.component';
 import { ScoreboardService } from './scoreboard.service';
-import { LoginDialogComponent } from './components/login-dialog/login-dialog.component'
+import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
+import { ScoreboardDialogComponent } from './components/scoreboard-dialog/scoreboard-dialog.component'
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
     ActorNameComponent,
     MatchContainersComponent,
     ScoreDialogComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    ScoreboardDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
     DndModule.forRoot(),
     MatButtonModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
     ],
   providers: [
     SearchService,
@@ -50,7 +54,8 @@ import { LoginDialogComponent } from './components/login-dialog/login-dialog.com
   bootstrap: [AppComponent],
   entryComponents: [
     ScoreDialogComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    ScoreboardDialogComponent
   ]
 })
 export class AppModule { }

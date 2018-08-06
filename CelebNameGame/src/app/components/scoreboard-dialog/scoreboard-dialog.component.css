@@ -1,0 +1,15 @@
+table{
+    width: 100%
+}
+
+.mat-column-score {
+    padding-left: 20px;
+}
+
+.mat-column-played {
+    padding-left: 20px;
+}
+
+.mat-column-percentage {
+    padding-left: 20px;
+}

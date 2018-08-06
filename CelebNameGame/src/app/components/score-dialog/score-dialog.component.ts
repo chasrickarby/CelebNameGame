@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatButtonModule } from '@angular/material';
 import { ScoreboardService } from '../../scoreboard.service'
-// import { ScoreboardDialog } from '../'
+import { ScoreboardDialogComponent } from '../scoreboard-dialog/scoreboard-dialog.component'
 
 @Component({
   selector: 'app-score-dialog',
@@ -10,10 +10,16 @@ import { ScoreboardService } from '../../scoreboard.service'
 })
 export class ScoreDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef:MatDialogRef<ScoreDialogComponent>, private gd: ScoreboardService, private dialog: MatDialog) {
-    this.score = data.score;
-    this.minorMessage = data.minorMessage;
-    this.totalPossible = data.totalPossible;
+  score: string;
+  minorMessage: string;
+  totalPossible: string;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef:MatDialogRef<ScoreboardDialogComponent>, private gd: ScoreboardService, private dialog: MatDialog) {
+    if(data){
+      this.score = data.score;
+      this.minorMessage = data.minorMessage;
+      this.totalPossible = data.totalPossible;
+    }
 
     // If we've got someone logged in
     if(this.gd.loggedIn['global']){
@@ -26,10 +32,6 @@ export class ScoreDialogComponent implements OnInit {
       console.log("We're not logged in.");
     }
    }
-
-  score: string;
-  minorMessage: string;
-  totalPossible: string;
 
   retry: boolean;
   newGame: boolean;
@@ -56,5 +58,7 @@ export class ScoreDialogComponent implements OnInit {
     }else{
       console.log("Not logged in");
     }
+
+    this.dialogRef = this.dialog.open(ScoreboardDialogComponent);
   }
 }
