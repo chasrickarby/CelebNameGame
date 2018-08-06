@@ -14,13 +14,23 @@ export class LoginDialogComponent implements OnInit {
 
   nameField: FormControl = new FormControl();
 
+  canceled: boolean = false;
+
   ngOnInit() {
   }
 
   loginOrRegister(){
     console.log("User: " + this.nameField.value);
-    this.dialogRef.close();
+    this.canceled = false;
+    if(this.nameField.value){
+      console.log(this.nameField.value)
+      this.dialogRef.close();
+    }
+  }
 
+  cancel(){
+    this.canceled = true;
+    this.dialogRef.close();
   }
 
 }

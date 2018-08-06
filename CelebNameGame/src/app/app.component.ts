@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component'
 import { MatButtonModule, MatDialog, MatDialogRef } from '@angular/material';
 import { ScoreboardService } from './scoreboard.service'
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class AppComponent {
   configForNewGame: boolean = true;
   name: string;
 
-  constructor (private dialog: MatDialog, private gd: ScoreboardService) {}
+  constructor (private dialog: MatDialog, private gd: ScoreboardService, public snackBar: MatSnackBar) {}
 
   dialogRef: MatDialogRef<LoginDialogComponent>;
 
@@ -34,15 +35,22 @@ export class AppComponent {
       }
 
       let dialog = this.dialogRef.componentInstance;
+      
+      // If they canceled, get out
+      if(dialog.canceled){
+        return;
+      }
       this.name = dialog.nameField.value;
 
       if(!this.userExists(this.name)){
         // Add user
         this.gd.shareObj['global'].push({name: this.name, score: 0, played: 0});
         this.loginUser(this.name);
+        this.openSnackBar(this.name, "Created and logged in")
       }else{
         // Just log the user in
         this.loginUser(this.name);
+        this.openSnackBar(this.name, "Logged in")
       }
       
       console.log(this.gd.shareObj['global']);
@@ -61,7 +69,6 @@ export class AppComponent {
   }
 
   private loginUser(user: string){
-
     // We already know that the user is in the list because userExists returned true in login()
     for(var entry of this.gd.shareObj['global']){
       console.log(entry.name + " =?= " + user)
@@ -73,5 +80,11 @@ export class AppComponent {
         console.log(this.gd.loggedIn['global']);
       }
     }
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 }

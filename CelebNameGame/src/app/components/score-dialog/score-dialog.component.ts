@@ -14,7 +14,7 @@ export class ScoreDialogComponent implements OnInit {
   minorMessage: string;
   totalPossible: string;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef:MatDialogRef<ScoreboardDialogComponent>, private gd: ScoreboardService, private dialog: MatDialog) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<ScoreDialogComponent>, private socreboardDialogRef:MatDialogRef<ScoreboardDialogComponent>, private gd: ScoreboardService, private dialog: MatDialog) {
     if(data){
       this.score = data.score;
       this.minorMessage = data.minorMessage;
@@ -40,12 +40,14 @@ export class ScoreDialogComponent implements OnInit {
   }
 
   closeAndRetry(){
+    console.log("Close and retry")
     this.newGame = false;
     this.retry = true;
     this.dialogRef.close();
   }
 
   closeAndNewGame(){
+    console.log("Close and new game")
     this.newGame = true;
     this.retry = false;
     this.dialogRef.close();
@@ -59,6 +61,6 @@ export class ScoreDialogComponent implements OnInit {
       console.log("Not logged in");
     }
 
-    this.dialogRef = this.dialog.open(ScoreboardDialogComponent);
+    this.socreboardDialogRef = this.dialog.open(ScoreboardDialogComponent);
   }
 }

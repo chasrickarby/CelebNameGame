@@ -17,7 +17,7 @@ import { MatchContainersComponent } from './components/match-containers/match-co
 import { MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatSnackBarModule } from '@angular/material';
 import { ScoreDialogComponent } from './components/score-dialog/score-dialog.component';
 import { ScoreboardService } from './scoreboard.service';
 import { LoginDialogComponent } from './components/login-dialog/login-dialog.component';
@@ -45,7 +45,8 @@ import { ScoreboardDialogComponent } from './components/scoreboard-dialog/scoreb
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
     ],
   providers: [
     SearchService,

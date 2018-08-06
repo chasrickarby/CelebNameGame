@@ -25,8 +25,26 @@ export class ScoreboardDialogComponent implements OnInit {
       console.log("Element: ")
       console.log(element);
     }
-
+    
     this.dataSource = this.gd.shareObj['global'];
+    console.log("SORT!")
+    console.log(this.dataSource)
+    this.dataSource.sort(this.compare);
+    console.log("SORTED!")
+    console.log(this.dataSource)
+  }
+
+  compare(a, b) {
+    const percentageA = a.percentage;
+    const percentageB = b.percentage;
+  
+    let comparison = 0;
+    if (percentageA > percentageB) {
+      comparison = -1;
+    } else if (percentageA < percentageB) {
+      comparison = 1;
+    }
+    return comparison;
   }
 
 }
