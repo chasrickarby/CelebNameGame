@@ -1,0 +1,28 @@
+.search{
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+
+.match-containers {
+    position: relative;
+    margin: auto;
+    width: 75%;
+}
+
+h1 {
+    margin-top: 10%;
+    font-family: 'Poiret One', Helvetica, sans-serif;
+    text-align: center;
+}
+
+p {
+    margin-top: 40px;
+    font-family: 'Quicksand', Helvetica, sans-serif;
+    text-align: center;
+}
+
+.login-button {
+    margin-bottom: 20px;
+    text-align: center;
+}

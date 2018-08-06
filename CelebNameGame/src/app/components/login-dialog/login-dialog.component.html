@@ -1,0 +1,22 @@
+<h1>Login</h1>
+<p>Login, or create a new user.</p>
+  <p>Logging in with a user that does not exist will register and log in that user.</p>
+  <div class="inputArea">
+    <mat-form-field class="input">
+      <input matInput [formControl]="nameField" type="text" placeholder="Name">
+    </mat-form-field>
+  </div>
+
+  <!-- This could potentially be a password property -->
+  <!-- <mat-form-field class="example-full-width">
+    <input matInput placeholder="Favorite food" value="Sushi">
+  </mat-form-field> -->
+<div class="section row">
+  <div class="col-sm buttons">
+    <button mat-raised-button (click)="loginOrRegister()">Login/Register</button>
+  </div>
+  <div class="col-sm buttons">
+    <button mat-raised-button (click)="cancel()">Cancel</button>
+  </div>
+</div>
+

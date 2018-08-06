@@ -1,0 +1,28 @@
+<h1>Gotta Match 'em All</h1>
+<p>When you think you're done, click Submit at the bottom of the page to check your answers.</p>
+<div ng-controller="sortableController" class="section row">
+  <div class="col-sm">
+    <span *ngIf="id != null">
+      <ul class="actor-name" dnd-sortable-container [sortableData]="actorNames">
+        <li *ngFor="let actor of actorNames | slice:0:5; let i = index" class="listItem" dnd-sortable [sortableIndex]="i">          
+          <p>{{actor}}</p>
+          <app-actor-name></app-actor-name>
+        </li>
+      </ul>
+    </span>   
+  </div> 
+  <div class="col-sm">
+    <span *ngIf="id != null">
+      <ul class="actor-pic">
+        <li *ngFor="let actor of actorIds | slice:0:5" class="listItem">
+          <div *ngIf="actor">
+            <app-actor-image class="actor-image" [actorId] = "actor"></app-actor-image>
+          </div>
+        </li>  
+      </ul>
+    </span>
+  </div>
+</div>
+<div class="submitButton">
+  <button mat-raised-button (click)="score()">Submit</button>
+</div>

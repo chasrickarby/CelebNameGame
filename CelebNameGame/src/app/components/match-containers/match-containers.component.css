@@ -1,0 +1,40 @@
+li {
+    height: 175px;
+    max-height: 175px;
+    width: stretch;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Poiret One', Helvetica, sans-serif;
+}
+
+p {
+    font-family: 'Quicksand', Helvetica, sans-serif;
+    text-align: center;
+}
+
+ul {
+    width: stretch;
+    list-style-type: none;
+}
+
+ul li p {
+    height: stretch;
+    line-height: 175px;
+    width: stretch;
+    text-align: center;
+}
+
+.submitButton{
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.actor-pic{
+    text-align: center;
+}
+
+.actor-image {
+    display: block;
+}
