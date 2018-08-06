@@ -79,7 +79,7 @@ export class MatchContainersComponent implements OnInit {
     return array;
   }
 
-  private score(){
+  score(){
     let points = 0;
     for(var i = 0; i < this.correctActorNameList.length; i++){
       console.log(this.correctActorNameList[i] + " == " + this.actorNames[i]+ "?")
