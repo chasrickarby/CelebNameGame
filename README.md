@@ -1,3 +1,14 @@
+# Notes:
+* There’s more stuff in the app component than I’d like
+* The user login should really be backed by something like a db
+** Persistant
+* the user login would be nice if it had a password option
+* it’d be nice if when you dragged and dropped the names that it didn’t shift other list items but instead swapped with where you dragged from
+* Small things like hitting enter while in the input should log you in
+* Scrollable list on search bar
+
+# Angular CLI Info:
+
 # CelebNameGame
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
