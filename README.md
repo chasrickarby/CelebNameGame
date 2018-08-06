@@ -1,5 +1,6 @@
 # Notes:
 * There’s more stuff in the app component than I’d like
+** The same can be said for the match containers component, it got a little messy as I went and should have been component-ized 
 * The user login should really be backed by something like a db
 ** Persistant
 * the user login would be nice if it had a password option
