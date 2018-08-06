@@ -7,6 +7,7 @@
 * it’d be nice if when you dragged and dropped the names that it didn’t shift other list items but instead swapped with where you dragged from
 * Small things like hitting enter while in the input should log you in
 * Scrollable list on search bar
+* Routing should have been implemented to go from the search page to the play page, as opposed to how it's implemented right now.
 
 # Angular CLI Info:
 
